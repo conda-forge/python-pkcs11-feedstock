@@ -24,7 +24,7 @@ requirements:
     - toolchain
   run:
     - cython
-    - aenum 2.0.*
+    - aenum 2.0.*  # [py2k or py35]
     - asn1crypto ==0.22.0
     - cached-property 1.3.*
 
