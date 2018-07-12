@@ -20,8 +20,6 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - {{ compiler('c') }}
-  host:
     - cython
     - setuptools
     - setuptools_scm
