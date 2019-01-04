@@ -1,0 +1,10 @@
+diff --git a/pkcs11/mechanisms.py b/pkcs11/mechanisms.py
+index 0ffc489..5e1c95f 100644
+--- a/pkcs11/mechanisms.py
++++ b/pkcs11/mechanisms.py
+@@ -1,4 +1,4 @@
+-from enum import IntEnum
++from aenum import IntEnum
+ 
+ 
+ class KeyType(IntEnum):
