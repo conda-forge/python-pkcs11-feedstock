@@ -21,10 +21,11 @@ requirements:
     - {{ compiler('c') }}
   host:
     - cython
+    - python
     - pip
     - setuptools_scm
   run:
-    - cython
+    - python
     - aenum 2.0.*  # [py2k or py35]
     - asn1crypto ==0.22.0
     - cached-property 1.3.*
