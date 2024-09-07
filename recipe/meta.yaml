@@ -12,13 +12,14 @@ source:
     - 0001-use-aenum-py-lt-36.diff  # [py<36]
 
 build:
-  number: 1007
+  number: 1008
   skip: True  # [win]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - cython
     - python
