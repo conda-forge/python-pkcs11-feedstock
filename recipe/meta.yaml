@@ -1,24 +1,25 @@
 {% set name = "python-pkcs11" %}
-{% set version = "0.5.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 154150ce529ed0f8a7ed7d7ffe3a5be0211427c3ecb8e135fa12042fb3a66790
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 5522af372cc7d5df0df4c9986a77a614f732201380fad9926b4e8d2e306b666c
   patches:
     - 0001-use-aenum-py-lt-36.diff  # [py<36]
 
 build:
-  number: 1007
-  skip: True  # [win]
+  number: 0
+  skip: true  # [win]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - cython
     - python
@@ -51,12 +52,12 @@ about:
   summary: 'A high level Python interface to the PKCS#11 (Cryptoki) standard to support HSM and Smartcard devices'
 
   description: |
-      A high level, "more Pythonic" interface to the PKCS#11 (Cryptoki) standard to support
-      HSM and Smartcard devices in Python.
-      The interface is designed to follow the logical structure of a HSM, with useful
-      defaults for obscurely documented parameters. Many APIs will optionally accept
-      iterables and act as generators, allowing you to stream large data blocks for
-      symmetric encryption.
+    A high level, "more Pythonic" interface to the PKCS#11 (Cryptoki) standard to support
+    HSM and Smartcard devices in Python.
+    The interface is designed to follow the logical structure of a HSM, with useful
+    defaults for obscurely documented parameters. Many APIs will optionally accept
+    iterables and act as generators, allowing you to stream large data blocks for
+    symmetric encryption.
   doc_url: http://python-pkcs11.readthedocs.io/en/latest/
   dev_url: https://github.com/danni/python-pkcs11
 
