@@ -6,13 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 154150ce529ed0f8a7ed7d7ffe3a5be0211427c3ecb8e135fa12042fb3a66790
   patches:
     - 0001-use-aenum-py-lt-36.diff  # [py<36]
 
 build:
-  number: 1008
+  number: 1009
   skip: True  # [win]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
